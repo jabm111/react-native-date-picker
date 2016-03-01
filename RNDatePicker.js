@@ -148,7 +148,7 @@ export default class CustomDatePicker extends Component {
 
     render() {
         return (
-            <View>
+            <View style={this.props.containerStyle}>
                 {this.renderModalIOS()}
                 <TouchableHighlight onPress={this.openDatePicker} underlayColor={'transparent'}>
                     {this.props.children}
@@ -165,12 +165,14 @@ CustomDatePicker.propTypes = {
     minDate: React.PropTypes.instanceOf(Date),
     maxDate: React.PropTypes.instanceOf(Date),
     cancelText: React.PropTypes.string,
-    doneText: React.PropTypes.string
+    doneText: React.PropTypes.string,
+    containerStyle: React.PropTypes.object
 };
 
 CustomDatePicker.defaultProps = {
     cancelText: 'Cancel',
-    doneText: 'Done'
+    doneText: 'Done',
+    containerStyle: {}
 };
 
 const styles = StyleSheet.create({
