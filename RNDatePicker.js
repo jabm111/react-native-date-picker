@@ -117,7 +117,7 @@ export default class CustomDatePicker extends Component {
                                     underlayColor={'transparent'}
                                     onPress={this.handlePressCancel}
                                 >
-                                    <Text style={styles.text}>{this.props.cancelText}</Text>
+                                    <Text allowFontScaling={this.props.allowFontScaling} style={styles.text}>{this.props.cancelText}</Text>
                                 </TouchableHighlight>
                             </View>
                             <View style={styles.btn}>
@@ -126,7 +126,7 @@ export default class CustomDatePicker extends Component {
                                     underlayColor={'transparent'}
                                     onPress={this.handlePressDone}
                                 >
-                                    <Text style={styles.text}>{this.props.doneText}</Text>
+                                    <Text allowFontScaling={this.props.allowFontScaling} style={styles.text}>{this.props.doneText}</Text>
                                 </TouchableHighlight>
                             </View>
                         </View>
@@ -166,13 +166,15 @@ CustomDatePicker.propTypes = {
     maxDate: React.PropTypes.instanceOf(Date),
     cancelText: React.PropTypes.string,
     doneText: React.PropTypes.string,
-    containerStyle: React.PropTypes.object
+    containerStyle: React.PropTypes.object,
+    allowFontScaling: React.PropTypes.bool
 };
 
 CustomDatePicker.defaultProps = {
     cancelText: 'Cancel',
     doneText: 'Done',
-    containerStyle: {}
+    containerStyle: {},
+    allowFontScaling: true
 };
 
 const styles = StyleSheet.create({
