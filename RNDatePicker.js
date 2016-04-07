@@ -130,14 +130,16 @@ export default class CustomDatePicker extends Component {
                                 </TouchableHighlight>
                             </View>
                         </View>
-                        <DatePickerIOS
-                            style={styles.datePickerIOS}
-                            date={this.state.selectedDate}
-                            mode={'date'}
-                            minimumDate={this.state.minDate}
-                            maximumDate={this.state.maxDate}
-                            onDateChange={(date) => this.handleDateChange(date)}
-                        />
+                        <View style={styles.datePickerIOSWrapper}>
+                            <DatePickerIOS
+                                style={styles.datePickerIOS}
+                                date={this.state.selectedDate}
+                                mode={'date'}
+                                minimumDate={this.state.minDate}
+                                maximumDate={this.state.maxDate}
+                                onDateChange={(date) => this.handleDateChange(date)}
+                            />
+                        </View>
                     </View>
                 </Modal>
             );
@@ -194,6 +196,12 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderColor: 'lightgray',
         paddingTop: 10
+    },
+    datePickerIOSWrapper: {
+        width: WIN.width,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     datePickerIOS: {
         backgroundColor: 'white'
