@@ -33,6 +33,11 @@ export default class CustomDatePicker extends Component {
         this.renderModalIOS = this.renderModalIOS.bind(this);
         this.handlePressDone = this.handlePressDone.bind(this);
         this.handlePressCancel = this.handlePressCancel.bind(this);
+
+        console.ignoredYellowBox = ["Warning: Failed propType: Invalid prop `date` of type `Number`",
+            "Warning: Failed propType: Invalid prop `maximumDate` of type `Number`",
+            "Warning: Failed propType: Invalid prop `minimumDate` of type `Number`",
+            "Warning: Failed propType: Required prop `onDateChange`"];
     }
 
     componentDidMount() {
@@ -133,7 +138,7 @@ export default class CustomDatePicker extends Component {
                         <View style={styles.datePickerIOSWrapper}>
                             <DatePickerIOS
                                 style={styles.datePickerIOS}
-                                date={this.state.selectedDate}
+                                date={this.state.selectedDate ? this.state.selectedDate : new Date()}
                                 mode={'date'}
                                 minimumDate={this.state.minDate}
                                 maximumDate={this.state.maxDate}
