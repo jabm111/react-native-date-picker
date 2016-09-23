@@ -19,7 +19,7 @@ export default class CustomDatePicker extends Component {
         this.isReady = false;
 
         this.state = {
-            selectedDate: null,
+            selectedDate: new Date(),
             minDate: null,
             maxDate: null,
             showModal: false
@@ -105,7 +105,7 @@ export default class CustomDatePicker extends Component {
         if (Platform.OS === 'ios') {
             return (
                 <Modal
-                    animated
+                    animationType={'slide'}
                     transparent
                     visible={this.state.showModal}
                 >
@@ -132,7 +132,6 @@ export default class CustomDatePicker extends Component {
                         </View>
                         <View style={styles.datePickerIOSWrapper}>
                             <DatePickerIOS
-                                style={styles.datePickerIOS}
                                 date={this.state.selectedDate}
                                 mode={'date'}
                                 minimumDate={this.state.minDate}
@@ -199,11 +198,6 @@ const styles = StyleSheet.create({
     },
     datePickerIOSWrapper: {
         width: WIN.width,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    datePickerIOS: {
         backgroundColor: 'white'
     },
     btn: {
