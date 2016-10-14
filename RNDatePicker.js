@@ -151,7 +151,10 @@ export default class CustomDatePicker extends Component {
         return (
             <View style={this.props.containerStyle}>
                 {this.renderModalIOS()}
-                <TouchableHighlight onPress={this.openDatePicker} underlayColor={'transparent'}>
+                <TouchableHighlight onPress={this.openDatePicker} 
+                    underlayColor={'transparent'}testID={'appium-btn-date-picker'}
+                    accessible={true} 
+                    accessibilityLabel={'appium-btn-date-picker'}>
                     {this.props.children}
                 </TouchableHighlight>
             </View>
